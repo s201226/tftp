@@ -1,0 +1,19 @@
+default vesamenu.c32
+prompt 0
+
+menu title PXE Boot Menu
+
+label ubuntu-16.04-i386
+menu label ubuntu-16.04-i386
+kernel images/ubuntu/16.04/i386/linux
+append boot=casper netboot=nfs initrd=images/ubuntu/16.04/i386/initrd.gz nfsroot=bigbrother:/srv/nfs/ubuntu16.04 ip=dhcp ro
+
+label xubuntu-16.04-i386
+menu label xubuntu-16.04-i386
+kernel images/xubuntu/16.04/i386/vmlinuz
+append boot=casper netboot=nfs initrd=images/xubuntu/16.04/i386/initrd.lz nfsroot=192.168.55.140:/srv/nfs/xubuntu16.04 ip=dhcp ro ramdisk_size=10000
+
+label centos-6.9-i386
+menu label centos-6.9-i386
+kernel images/centos/6.9/i386/vmlinuz0
+append boot=casper netboot=nfs initrd=images/centos/6.9/i386/initrd0.img nfsroot=192.168.55.140:/srv/nfs/centos6.9 ip=dhcp ro ramdisk_size=10000
